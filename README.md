@@ -77,8 +77,8 @@ brandcraft/
 │   ├── gemini.md             ← Gemini Gems + API setup
 │   └── copilot.md            ← Copilot Studio + Azure setup
 ├── docs/
-│   ├── brand-token-schema.md ← Token field reference
-│   └── social-formats.md     ← Social media specs quick reference
+│   ├── BRAND_TOKEN_SCHEMA.md ← Token field reference
+│   └── SOCIAL_FORMATS.md     ← Social media specs quick reference
 └── examples/
     ├── nike-instagram.md
     └── cobranding-guide.md
@@ -118,13 +118,13 @@ layout_pref       full-bleed | centered | editorial | grid | minimal
 imagery_dir       e.g. "action-sport", "people-first", "product-hero"
 ```
 
-Full schema reference: [docs/brand-token-schema.md](docs/brand-token-schema.md)
+Full schema reference: [docs/BRAND_TOKEN_SCHEMA.md](docs/BRAND_TOKEN_SCHEMA.md)
 
 ---
 
 ## 📐 Social Media Formats
 
-Pixel-perfect specifications for every major format on 9 platforms. Quick reference: [docs/social-formats.md](docs/social-formats.md)
+Pixel-perfect specifications for every major format on 9 platforms. Quick reference: [docs/SOCIAL_FORMATS.md](docs/SOCIAL_FORMATS.md)
 
 ---
 
