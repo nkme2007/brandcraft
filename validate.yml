@@ -1,0 +1,32 @@
+name: Validate SKILL.md
+
+on:
+  pull_request:
+    paths:
+      - 'SKILL.md'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check brand entry format
+        run: |
+          echo "Checking brand index format..."
+          invalid=$(grep -E "^(US|IN|CN|EU)-[0-9]{3}" SKILL.md | grep -vE "^(US|IN|CN|EU)-[0-9]{3} \| .+ \| #[0-9A-Fa-f]{6},#[0-9A-Fa-f]{6},#[0-9A-Fa-f]{6} \| (geo|hum|cond|cser|mser|disp|scr) \| (wm|lm|mk|emb|cmb) \| .+ \| .+$" || true)
+          if [ -n "$invalid" ]; then
+            echo "Failed - invalid brand entries:"
+            echo "$invalid"
+            exit 1
+          fi
+          echo "All brand entries look valid"
+
+      - name: Count brands
+        run: |
+          us=$(grep -c "^US-" SKILL.md || true)
+          india=$(grep -c "^IN-" SKILL.md || true)
+          china=$(grep -c "^CN-" SKILL.md || true)
+          europe=$(grep -c "^EU-" SKILL.md || true)
+          total=$((us + india + china + europe))
+          echo "Brand count: US=$us IN=$india CN=$china EU=$europe TOTAL=$total"
